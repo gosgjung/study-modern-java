@@ -93,4 +93,28 @@ public class OptionalTests {
         System.out.println(optNumber2);
         assertThat(optNumber2).isEmpty();
     }
+
+    @Test
+    public void OPTIONAL_MAP_TEST(){
+        String bookName = null;
+        Optional<Integer> len = Optional.ofNullable(bookName)
+                .map(book -> book.length());
+
+        len.ifPresent(l -> System.out.println(l));
+    }
+
+    @Test
+    public void OPTIONAL_IS_PRESENT(){
+        String bookName = null;
+        if(Optional.ofNullable(bookName).isPresent()){
+            System.out.println(bookName.length());
+        }
+    }
+
+    @Test
+    public void OPTIONAL_IF_RESENT_TEST(){
+        String bookName = null;
+        Optional.ofNullable(bookName).ifPresent(book -> System.out.println(book));
+    }
+
 }
